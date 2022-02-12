@@ -1,0 +1,14 @@
+===================
+Import directives
+===================
+
+import "solidity/workshop/test.sol";
+
+-------------------
+
+(source_file
+  (directive
+    (import_directive
+      (path
+        (non_empty_string_literal
+          (double_quoted_printable))))))
