@@ -1,5 +1,5 @@
 ===================
-Import directives
+Import directives, path
 ===================
 
 import "solidity/workshop/test.sol";
@@ -9,6 +9,40 @@ import "solidity/workshop/test.sol";
 (source_file
   (directive
     (import_directive
+      (path
+        (non_empty_string_literal
+          (double_quoted_printable))))))
+
+===================
+Import directives, various options
+===================
+
+import { hello as hi} from "solidity/test.sol";
+import { hello, hi } from "solidity/banana.sol";
+import * as test from "solidity/test.sol";
+
+-------------------
+
+(source_file
+  (directive
+    (import_directive
+      (symbol_aliases
+        (identifier)
+        (identifier))
+      (path
+        (non_empty_string_literal
+          (double_quoted_printable)))))
+  (directive
+    (import_directive
+      (symbol_aliases
+        (identifier)
+        (identifier))
+      (path
+        (non_empty_string_literal
+          (double_quoted_printable)))))
+  (directive
+    (import_directive
+      (identifier)
       (path
         (non_empty_string_literal
           (double_quoted_printable))))))

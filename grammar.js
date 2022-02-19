@@ -2,11 +2,11 @@ module.exports = grammar({
   name: 'solidity',
   
   rules: {
-    source_file: $ => choice(
+    source_file: $ => repeat1(choice(
       $.directive,
 //      $.definition,
 //      $.declaration,
-    ),
+    )),
 
     directive: $ => choice(
 //      $.pragma_directive,
@@ -51,10 +51,20 @@ module.exports = grammar({
 
     symbol_aliases: $ => seq(
       '{',
-      repeat1(seq(
+      choice(seq(
         $.identifier,
-        optional(seq('as', $.identifier)),
-        optional(','),
+        'as',
+        $.identifier
+        ),
+        $.identifier),
+      repeat(seq(
+        ',',
+      choice(seq(
+        $.identifier,
+        'as',
+        $.identifier
+        ),
+        $.identifier),
       )),
       '}'
     ),
