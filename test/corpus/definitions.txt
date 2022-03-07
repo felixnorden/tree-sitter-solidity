@@ -1,0 +1,60 @@
+==========================
+Contract definition, no body
+==========================
+
+contract Test {}
+
+--------------------------
+
+(source_file
+  (definition 
+    (contract_definition
+      (identifier))))
+
+========================
+Contract definition, inheritance with identifier path
+========================
+
+contract Test is Abstract.Test, Abstract2 {}
+
+------------------------
+
+(source_file
+  (definition
+    (contract_definition
+      (identifier)
+      (inheritance_specifier 
+        (identifier_path
+          (identifier)
+          (identifier)))
+      (inheritance_specifier
+        (identifier_path
+          (identifier))))))
+
+========================
+Contract definition, inheritance with constructor arguments
+========================
+
+contract Test is Abstract(0, true, "Hello") {}
+
+------------------------
+
+(source_file
+  (definition
+    (contract_definition
+      (identifier)
+      (inheritance_specifier 
+        (identifier_path
+          (identifier))
+        (call_argument_list
+          (expression
+            (literal
+              (number_literal
+                (decimal_number))))
+          (expression
+            (literal
+              (boolean_literal)))
+          (expression
+            (literal
+              (string_literal
+                (double_quoted_printable)))))))))

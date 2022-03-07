@@ -1,5 +1,72 @@
 [
   {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "call_argument_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "contract_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "contract_body_element",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "inheritance_specifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "decimal_number",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "contract_definition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "directive",
     "named": true,
     "fields": {},
@@ -20,9 +87,48 @@
     "fields": {}
   },
   {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hex_number",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "identifier",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "identifier_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "import_directive",
@@ -48,11 +154,81 @@
     }
   },
   {
-    "type": "non_empty_string_literal",
+    "type": "inheritance_specifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call_argument_list",
+          "named": true
+        },
+        {
+          "type": "identifier_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "literal",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "decimal_number",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "number_unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "number_unit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
       "required": false,
       "types": [
         {
@@ -71,21 +247,6 @@
     }
   },
   {
-    "type": "path",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "non_empty_string_literal",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -94,7 +255,34 @@
       "required": true,
       "types": [
         {
+          "type": "definition",
+          "named": true
+        },
+        {
           "type": "directive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "double_quoted_printable",
+          "named": true
+        },
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "single_quoted_printable",
           "named": true
         }
       ]
@@ -124,11 +312,35 @@
     "named": false
   },
   {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
     "type": "*",
     "named": false
   },
   {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "0x",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {
@@ -140,7 +352,23 @@
     "named": false
   },
   {
+    "type": "abstract",
+    "named": false
+  },
+  {
     "type": "as",
+    "named": false
+  },
+  {
+    "type": "contract",
+    "named": false
+  },
+  {
+    "type": "contract_body_element",
+    "named": true
+  },
+  {
+    "type": "days",
     "named": false
   },
   {
@@ -152,7 +380,23 @@
     "named": false
   },
   {
+    "type": "ether",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
     "type": "from",
+    "named": false
+  },
+  {
+    "type": "gwei",
+    "named": false
+  },
+  {
+    "type": "hours",
     "named": false
   },
   {
@@ -160,7 +404,19 @@
     "named": false
   },
   {
+    "type": "is",
+    "named": false
+  },
+  {
+    "type": "minutes",
+    "named": false
+  },
+  {
     "type": "revert",
+    "named": false
+  },
+  {
+    "type": "seconds",
     "named": false
   },
   {
@@ -168,11 +424,27 @@
     "named": true
   },
   {
+    "type": "true",
+    "named": false
+  },
+  {
     "type": "u",
     "named": false
   },
   {
+    "type": "weeks",
+    "named": false
+  },
+  {
+    "type": "wei",
+    "named": false
+  },
+  {
     "type": "x",
+    "named": false
+  },
+  {
+    "type": "years",
     "named": false
   },
   {
